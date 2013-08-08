@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<title>{{ page.title }}</title>
+		<meta name="description" content="">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+
+		<link href='http://fonts.googleapis.com/css?family=Arimo:400,700' rel='stylesheet' type='text/css'>
+		<link rel="stylesheet" href="css/style.css">
+	</head>
+	<body>
+
+		<!-- header -->
+		<div id="header">
+			<div id="heading">
+				<h1>{{ site.name }}</h1>
+				<p>{{ site.description }}</p>
+			</div>
+		</div><!-- header end -->
+
+		<!-- wrapper -->
+		<div class="column-wrapper">
+
+			<!-- content -->
+			<div id="content">
+				{{ content | markdownify }}
+			</div><!-- content end -->
+
+		</div><!-- wrapper end -->
+
+		<!-- scripts -->
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.10.2/jquery.js"></script>
+		<script src="js/jquery.scrollNav.min.js"></script>
+		<script>
+		$(window).load(function() {
+			$('#content').scrollNav({
+				showHeadline: false,
+				showTopLink: false,
+				sections: 'h2', 
+			});
+
+		});
+		</script><!-- scripts end -->
+
+	</body>
+</html>
