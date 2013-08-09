@@ -22,6 +22,10 @@
 		<!-- wrapper -->
 		<div class="column-wrapper">
 
+			<div id="sidebar">
+				
+			</div>
+
 			<!-- content -->
 			<div id="content">
 				{{ content | markdownify }}
@@ -31,14 +35,16 @@
 
 		<!-- scripts -->
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.10.2/jquery.js"></script>
-		<script src="js/jquery.scrollNav.min.js"></script>
+		<script src="js/jquery.scrollNav.js"></script>
 		<script>
 		$(window).load(function() {
 			$('#content').scrollNav({
 				showHeadline: false,
 				showTopLink: false,
-				sections: 'h2',
-				fixedMargin: 0
+				sections: 'section',
+				fixedMargin: 0,
+				location: '#sidebar',
+				addClass: 'testclass'
 			});
 
 		});
