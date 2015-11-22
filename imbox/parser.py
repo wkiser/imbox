@@ -117,7 +117,7 @@ def decode_content(message):
     charset = message.get_content_charset('utf-8')
     try:
         return content.decode(charset)
-    except (AttributeError, LookupError):
+    except (AttributeError, LookupError, UnicodeDecodeError):
         return content
 
 
