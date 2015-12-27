@@ -45,7 +45,11 @@ class Imbox(object):
         logger.debug("Fetch all messages for UID in {}".format(uid_list))
 
         for uid in uid_list:
-            yield (uid, self.fetch_by_uid(uid))
+            try:
+                email = self.fetch_by_uid(uid)
+                yield (uid, email)
+            except Exception as exc:
+                logger.exception('Failed to parse email, skipping. uid={}, exc={}'.format(uid, exc.message))
 
     def mark_seen(self, uid):
         logger.info("Mark UID {} with \\Seen FLAG".format(int(uid)))
