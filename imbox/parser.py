@@ -122,14 +122,9 @@ def decode_content(message):
 
 
 def parse_email(raw_email):
-    email_message = None
     if isinstance(raw_email, binary_type):
-        try:
-            email_message = email.message_from_string(str_encode(raw_email, 'utf-8'))
-        except UnicodeEncodeError as e:
-            logger.debug('Failed to convert email message to unicode: %s', e.message)
-    if email_message is None:
-        email_message = email.message_from_string(raw_email)
+        raw_email = str_encode(raw_email, 'utf-8')
+    email_message = email.message_from_string(raw_email)
     maintype = email_message.get_content_maintype()
     parsed_email = {}
 

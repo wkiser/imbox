@@ -1,14 +1,14 @@
 from setuptools import setup
 import os
 
-version = '0.6.4'
+version = '0.7'
 
 
 def read(filename):
     return open(os.path.join(os.path.dirname(__file__), filename)).read()
 
 setup(
-    name='imbox-oscar',
+    name='imbox',
     version=version,
     description="Python IMAP for Human beings",
     long_description=read('README.md'),
